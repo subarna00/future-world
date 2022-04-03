@@ -40,7 +40,8 @@ class BannerController extends Controller
         $data = $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'image' => 'required', 'status' => 'required'
+            'image' => 'required',
+             'status' => 'required'
 
         ]);
         if ($request->hasFile('image')) {

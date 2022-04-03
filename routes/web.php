@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\BlogContentController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\BlogTypeController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\FaqController;
+use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ServiceTypeController;
@@ -23,9 +25,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('admin.layout.master');
-});
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
     Route::get('/dashboard', function () {
@@ -42,5 +41,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
     Route::resource('/faqs', FaqController::class);
     Route::resource('/blog-types', BlogTypeController::class);
     Route::resource('/blogs', BlogController::class);
+    Route::resource('/blog-content',BlogContentController::class);
 });
+// frontend
+Route::get('/',[FrontendController::class,'index']);
 require __DIR__ . '/auth.php';

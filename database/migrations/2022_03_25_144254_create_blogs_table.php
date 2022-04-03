@@ -18,6 +18,7 @@ class CreateBlogsTable extends Migration
             $table->unsignedBigInteger('blog_type_id');
             $table->longText('title');
             $table->longText('slug');
+            $table->string('image')->nullable();
             $table->longText('description');
             $table->string('status')->default('active');
 
