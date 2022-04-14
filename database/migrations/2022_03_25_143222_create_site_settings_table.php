@@ -19,8 +19,6 @@ class CreateSiteSettingsTable extends Migration
             $table->string('email');
             $table->string('phone_number');
             $table->string('address');
-            $table->longText('short_description');
-            $table->string('short_description_image');
             $table->string('map')->nullable();
             $table->string('facebook')->nullable();
             $table->string('youtube')->nullable();

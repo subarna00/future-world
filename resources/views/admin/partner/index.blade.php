@@ -8,15 +8,6 @@
                         <h3 class="card-title">Partner Table</h3>
 
                         <div class="card-tools">
-                            {{-- <div class="input-group input-group-sm" style="width: 150px;">
-                                <input type="text" name="table_search" class="float-right form-control" placeholder="Search">
-
-                                <div class="input-group-append">
-                                    <button type="submit" class="btn btn-default">
-                                        <i class="fas fa-search"></i>
-                                    </button>
-                                </div>
-                            </div> --}}
                             <a href="{{ route('partners.create') }}" class="btn btn-sm btn-dark">Create Partners</a>
                         </div>
                     </div>

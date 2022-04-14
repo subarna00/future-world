@@ -17,6 +17,7 @@ class CreateClientsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('image');
+            $table->longText('description')->nullable();
             $table->string('status')->default('active');
             $table->timestamps();
         });

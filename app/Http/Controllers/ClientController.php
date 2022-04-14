@@ -40,7 +40,8 @@ class ClientController extends Controller
         $data = $request->validate([
             'name' => 'required',
             'image' => 'required',
-            'status' => 'required'
+            'status' => 'required',
+            'description' => 'sometimes'
 
         ]);
         if ($request->hasFile('image')) {
@@ -88,7 +89,9 @@ class ClientController extends Controller
         $data = $request->validate([
             'name' => 'required',
             'image' => 'sometimes',
-            'status' => 'required'
+            'status' => 'required',
+            'description' => 'sometimes'
+
         ]);
         if ($request->hasFile('image')) {
             if (File::exists(public_path('images'), $client->image)) {

@@ -25,7 +25,14 @@
                                     <small class="text-red">{{ $errors->first('name') }}</small>
                                 @endif
                             </div>
-
+                            <div class="form-group">
+                                <label for="exampleInputEmail1"> Descripiton</label>
+                                <textarea name="description" class="form-control" id="summernote" cols="30"
+                                    rows="5">{{ old('description') }}</textarea>
+                                @if ($errors->has('description'))
+                                    <small class="text-red">{{ $errors->first('description') }}</small>
+                                @endif
+                            </div>
                             <div class="form-group">
                                 <label for="exampleInputFile">File input</label>
                                 <div class="input-group">

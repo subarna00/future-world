@@ -177,7 +177,8 @@ h1, h2, h3, h4, h5, h6 {
   color: #a23234;
 }
 #header .logo img {
-  max-height: 40px;
+  max-height: 85px;
+  object-fit: cover;
 }
 
 .scrolled-offset {
@@ -1320,11 +1321,11 @@ section {
   font-size: 14px;
   margin-bottom: 0;
 }
-.contact .php-email-form {
+.contact .php-email-forms {
   box-shadow: 0 0 30px rgba(214, 215, 216, 0.4);
   padding: 30px;
 }
-.contact .php-email-form .error-message {
+.contact .php-email-forms .error-message {
   display: none;
   color: #fff;
   background: #ed3c0d;
@@ -1332,10 +1333,10 @@ section {
   padding: 15px;
   font-weight: 600;
 }
-.contact .php-email-form .error-message br + br {
+.contact .php-email-forms .error-message br + br {
   margin-top: 25px;
 }
-.contact .php-email-form .sent-message {
+.contact .php-email-forms .sent-message {
   display: none;
   color: #fff;
   background: #18d26e;
@@ -1343,13 +1344,13 @@ section {
   padding: 15px;
   font-weight: 600;
 }
-.contact .php-email-form .loading {
+.contact .php-email-forms .loading {
   display: none;
   background: #fff;
   text-align: center;
   padding: 15px;
 }
-.contact .php-email-form .loading:before {
+.contact .php-email-forms .loading:before {
   content: "";
   display: inline-block;
   border-radius: 50%;
@@ -1361,24 +1362,24 @@ section {
   -webkit-animation: animate-loading 1s linear infinite;
   animation: animate-loading 1s linear infinite;
 }
-.contact .php-email-form .form-group {
+.contact .php-email-forms .form-group {
   margin-bottom: 20px;
 }
-.contact .php-email-form input, .contact .php-email-form textarea {
+.contact .php-email-forms input, .contact .php-email-forms textarea {
   border-radius: 0;
   box-shadow: none;
   font-size: 14px;
 }
-.contact .php-email-form input:focus, .contact .php-email-form textarea:focus {
+.contact .php-email-forms input:focus, .contact .php-email-forms textarea:focus {
   border-color: #a23234;
 }
-.contact .php-email-form input {
+.contact .php-email-forms input {
   padding: 10px 15px;
 }
-.contact .php-email-form textarea {
+.contact .php-email-forms textarea {
   padding: 12px 15px;
 }
-.contact .php-email-form button[type=submit] {
+.contact .php-email-forms button[type=submit] {
   background: #a23234;
   border: 0;
   padding: 10px 30px;
@@ -1386,7 +1387,7 @@ section {
   transition: 0.4s;
   border-radius: 4px;
 }
-.contact .php-email-form button[type=submit]:hover {
+.contact .php-email-forms button[type=submit]:hover {
   background: #f58634;
 }
 @-webkit-keyframes animate-loading {
@@ -1559,4 +1560,49 @@ section {
     text-align: center;
     padding: 2px 0;
   }
+}
+
+.send{
+    border: 1px solid transparent;
+    padding: 20px 30px;
+    box-shadow: 0px 0px 10px 3px #00000026;
+    margin-bottom: 70px;
+}
+.send h4{
+    border-bottom: 2px solid #b45b5d;
+    padding-bottom: 15px;
+}
+.about-head{
+    font-size: 35px;
+    color: #9f3133;
+    border-bottom: 1px solid black;
+    padding: 20px 0px;
+}
+.carousel{
+    max-width: 70%;
+    margin: auto;
+}
+.carousel-control-prev{
+    position: absolute;
+    left: -80px;
+}
+.carousel-control-next{
+    position: absolute;
+    right: -80px;
+}
+.test-head{
+    font-weight: 700;
+    margin-bottom: 5px;
+    font-size: 22px;
+    color: #222222;
+}
+.test-designation{
+    font-size: 10px;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 100px;
+    background-color: #9f3133;
+    border: transparent;
+    font-weight: 600;
+    margin: 10px 0px;
 }

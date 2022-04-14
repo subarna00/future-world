@@ -42,8 +42,6 @@ class SiteSettingController extends Controller
             'email' => 'required',
             'phone_number' => "required",
             'address' => 'required',
-            'short_description' => 'required',
-            'short_description_image' => 'sometimes',
             'facebook' => 'sometimes',
             'instagram' => 'sometimes',
             'youtube' => 'sometimes',
@@ -56,12 +54,7 @@ class SiteSettingController extends Controller
             $image->move(public_path('images'), $img);
             $data['logo'] = $img;
         }
-        if ($request->hasFile('short_description_image')) {
-            $image = $request->file('short_description_image');
-            $img = time() . '.' . $image->getClientOriginalName();
-            $image->move(public_path('images'), $img);
-            $data['short_description_image'] = $img;
-        }
+
         SiteSetting::create($data);
         notify()->success('Site setting is created');
         return redirect()->route('site-setting.index');
@@ -103,8 +96,6 @@ class SiteSettingController extends Controller
             'email' => 'required',
             'phone_number' => "required",
             'address' => 'required',
-            'short_description' => 'required',
-            'short_discription_image' => 'sometimes',
             'facebook' => 'sometimes',
             'instagram' => 'sometimes',
             'youtube' => 'sometimes',
@@ -117,12 +108,7 @@ class SiteSettingController extends Controller
             $image->move(public_path('images'), $img);
             $data['logo'] = $img;
         }
-        if ($request->hasFile('short_description_image')) {
-            $image = $request->file('short_description_image');
-            $img = time() . '.' . $image->getClientOriginalName();
-            $image->move(public_path('images'), $img);
-            $data['short_description_image'] = $img;
-        }
+
         SiteSetting::find($siteSetting->id)->update($data);
         notify()->success('Site setting is updated');
         return redirect()->route('site-setting.index');
