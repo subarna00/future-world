@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+$siteInfo = App\Models\SiteSetting::where('status', 'active')->first();
+?>
 
 <head>
-    @include('frontend.layout.header')
+    @include('frontend.layout.header', compact('siteInfo'))
 </head>
 
 <body>
 
-    <?php
-    $siteInfo = App\Models\SiteSetting::where('status', 'active')->first();
-    ?>
+
 
     @include('frontend.layout.topbar', compact('siteInfo'))
 
@@ -18,7 +19,6 @@
     @yield('content')
 
     {{-- @include('frontend.templateParts.testimonial') --}}
-    @include('frontend.templateParts.clients')
 
     <footer id="footer">
 
@@ -28,7 +28,6 @@
     </footer><!-- End Footer -->
 
     <!-- Vendor JS Files -->
-    {{-- <script src="{{ asset('ghar/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script> --}}
 
     <!-- Template Main JS File -->
     <x:notify-messages />

@@ -5,36 +5,39 @@
             <div class="col-md-12">
                 <div class="card card-dark">
                     <div class="card-header">
-                        <p class="card-title">Create About US</p>
+                        <h3 class="card-title">Edit team</h3>
                     </div>
                     @if ($errors)
                         @foreach ($errors->all() as $error)
                             <div>{{ $error }}</div>
                         @endforeach
                     @endif
-                    <form method="POST" action="{{ route('aboutus.store') }}" enctype="multipart/form-data">
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <form method="POST" action="{{ route('teams.update', $team->id) }}" enctype="multipart/form-data">
                         @csrf
+                        {{ method_field('PATCH') }}
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Title</label>
-                                <input type="text" class="form-control" placeholder="Enter title"
-                                    value="{{ old('title') }}" name="title" required>
-                                @if ($errors->has('title'))
-                                    <small class="text-red">{{ $errors->first('title') }}</small>
+                                <label for="exampleInputEmail1">Name</label>
+                                <input type="text" class="form-control" placeholder="Enter name"
+                                    value="{{ $team->name }}" name="name" required>
+                                @if ($errors->has('name'))
+                                    <small class="text-red">{{ $errors->first('name') }}</small>
                                 @endif
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Short Description</label>
-                                <textarea name="short_description" class="form-control" cols="5" rows="5"
-                                    value="{{ old('short_description') }}">{{ old('short_description') }}</textarea>
-                                @if ($errors->has('short_description'))
-                                    <small class="text-red">{{ $errors->first('short_description') }}</small>
+                                <label for="exampleInputEmail1">Desgnation</label>
+                                <input type="text" class="form-control" placeholder="Enter designation"
+                                    value="{{ $team->designation }}" name="designation" required>
+                                @if ($errors->has('designation'))
+                                    <small class="text-red">{{ $errors->first('designation') }}</small>
                                 @endif
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Description</label>
-                                <textarea name="description" class="form-control" cols="10" rows="10" id="summernote"
-                                    value="{{ old('description') }}">{{ old('description') }}</textarea>
+                                <label for="exampleInputEmail1">Descripiton</label>
+                                <textarea name="description" class="form-control" id="summernote" cols="30" value="{!! $team->description !!}"
+                                    rows="5">{!! $team->description !!}</textarea>
                                 @if ($errors->has('description'))
                                     <small class="text-red">{{ $errors->first('description') }}</small>
                                 @endif
@@ -51,13 +54,14 @@
                                     <small class="text-red">{{ $errors->first('image') }}</small>
                                 @endif
                             </div>
-                            {{-- <div class="form-group">
+                            <div class="form-group">
                                 <label for="exampleInputFile">Status</label>
                                 <select name="status" class="form-control">
-                                    <option value="active">Active</option>
-                                    <option value="inactive">Inactive</option>
+                                    <option value="active" @if ($team->status === 'active') selected @endif>Active</option>
+                                    <option value="inactive" @if ($team->status === 'inactive') selected @endif>Inactive
+                                    </option>
                                 </select>
-                            </div> --}}
+                            </div>
                         </div>
                         <!-- /.card-body -->
 
@@ -69,13 +73,4 @@
             </div>
         </div>
     </div>
-@endsection
-@section('script')
-    <script>
-        $('#summernote').summernote({
-            placeholder: 'Write your blog description',
-            tabsize: 2,
-            height: 100
-        });
-    </script>
 @endsection

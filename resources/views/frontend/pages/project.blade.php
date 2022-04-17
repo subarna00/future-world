@@ -28,11 +28,10 @@
                         <div class="member">
                             <div class="member-img">
                                 <img src="{{ asset('images/' . $project->image) }}" class="img-fluid" alt="">
-
                             </div>
                             <div class="member-info">
                                 <h4>{{ $project->title }}</h4>
-                                {{-- <span>Chief Executive Officer</span> --}}
+                                <span>{{ $project->description }}</span>
                             </div>
                         </div>
                     </div>

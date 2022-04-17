@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Client;
 use App\Models\Faq;
 use App\Models\NewsNotice;
 use App\Models\Project;
@@ -75,5 +76,10 @@ class FrontendController extends Controller
     {
         $projects = Project::latest()->paginate(12);
         return view('frontend.pages.project', compact('projects'));
+    }
+    public function clients()
+    {
+        $clients = Client::latest()->paginate(12);
+        return view('frontend.pages.clients', compact('clients'));
     }
 }

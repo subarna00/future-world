@@ -17,7 +17,9 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ServiceQueryController;
 use App\Http\Controllers\ServiceTypeController;
 use App\Http\Controllers\SiteSettingController;
+use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -54,6 +56,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
     Route::resource('/aboutus', AboutUsController::class);
     Route::resource('/about-info', AboutInfoController::class);
     Route::resource('/project', ProjectController::class);
+    Route::resource('/teams', TeamController::class);
+    Route::get('/users', [UserController::class, 'users'])->name('users');
 });
 // frontend
 Route::get('/', [FrontendController::class, 'index']);
@@ -68,5 +72,6 @@ Route::get('/news', [FrontendController::class, 'news']);
 Route::get('/blog/{slug}', [FrontendController::class, 'blogDetailPage'])->name('blogDetailPAge');
 Route::get('/about-us', [FrontendController::class, 'aboutus'])->name('aboutus');
 Route::get('/projects', [FrontendController::class, 'projects'])->name('projects');
+Route::get('/clients', [FrontendController::class, 'clients'])->name('clients');
 
 require __DIR__ . '/auth.php';

@@ -1584,11 +1584,11 @@ section {
 }
 .carousel-control-prev{
     position: absolute;
-    left: -80px;
+    left: -200px;
 }
 .carousel-control-next{
     position: absolute;
-    right: -80px;
+    right: -200px;
 }
 .test-head{
     font-weight: 700;

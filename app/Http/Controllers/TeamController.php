@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AboutUs;
+use App\Models\Team;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
-class AboutUsController extends Controller
+class TeamController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class AboutUsController extends Controller
      */
     public function index()
     {
-        $aboutus = AboutUs::latest()->get();
-        return view('admin.aboutus.index', compact('aboutus'));
+        $teams = Team::latest()->get();
+        return view('admin.team.index', compact('teams'));
     }
 
     /**
@@ -26,7 +26,7 @@ class AboutUsController extends Controller
      */
     public function create()
     {
-        return view('admin.aboutus.create');
+        return view('admin.team.create');
     }
 
     /**
@@ -38,10 +38,12 @@ class AboutUsController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'image' => 'sometimes',
-            'short_description' => 'sometimes',
+            'name' => 'required',
+            'description' => 'sometimes',
+            'image' => 'required',
+            'designation' => 'sometimes',
+            'status' => 'required'
+
         ]);
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -49,18 +51,18 @@ class AboutUsController extends Controller
             $image->move(public_path('images'), $img);
             $data['image'] = $img;
         }
-        AboutUs::create($data);
-        notify()->success("aboutus is Created");
-        return redirect()->route('aboutus.index');
+        Team::create($data);
+        notify()->success("team is Created");
+        return redirect()->route('teams.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\AboutUs  $aboutUs
+     * @param  \App\Models\Team  $team
      * @return \Illuminate\Http\Response
      */
-    public function show(AboutUs $aboutUs)
+    public function show(Team $team)
     {
         //
     }
@@ -68,58 +70,56 @@ class AboutUsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\AboutUs  $aboutUs
+     * @param  \App\Models\Team  $team
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $aboutus = AboutUs::find($id);
-        return view('admin.aboutus.edit', ['aboutus' => $aboutus]);
+        $team = Team::find($id);
+        return view('admin.team.edit', compact('team'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\AboutUs  $aboutUs
+     * @param  \App\Models\Team  $team
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Team $team)
     {
         $data = $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'short_description' => 'sometimes',
-            'image' => 'sometimes'
+            'name' => 'required',
+            'description' => 'sometimes',
+            'image' => 'required',
+            'designation' => 'sometimes',
+            'status' => 'required'
+
         ]);
-        $aboutUs = AboutUs::find($id);
         if ($request->hasFile('image')) {
-            if (File::exists(public_path('images'), $aboutUs->image)) {
-                File::delete(public_path('images', $aboutUs->image));
-            }
             $image = $request->file('image');
             $img = time() . '.' . $image->getClientOriginalName();
             $image->move(public_path('images'), $img);
             $data['image'] = $img;
         }
-        AboutUs::find($aboutUs->id)->update($data);
-        notify()->success("aboutus is updated");
-        return redirect()->route('aboutus.index');
+        Team::find($team->id)->update($data);
+        notify()->success("team is updated");
+        return redirect()->route('teams.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\AboutUs  $aboutUs
+     * @param  \App\Models\Team  $team
      * @return \Illuminate\Http\Response
      */
-    public function destroy(AboutUs $aboutUs)
+    public function destroy(Team $team)
     {
-        $aboutUs->delete();
-        if (File::exists(public_path('images'), $aboutUs->image)) {
-            File::delete(public_path('images', $aboutUs->image));
+        $team->delete();
+        if (File::exists(public_path('images'), $team->image)) {
+            File::delete(public_path('images', $team->image));
         }
-        notify()->success('aboutUs is deleted');
-        return redirect()->route('aboutus.index');
+        notify()->success('team is deleted');
+        return redirect()->route('teams.index');
     }
 }

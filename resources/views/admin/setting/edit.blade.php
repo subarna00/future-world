@@ -28,26 +28,7 @@
                                     <small class="text-red">{{ $errors->first('logo') }}</small>
                                 @endif
                             </div>
-                            <div class="form-group">
-                                <label for="exampleInputFile">Site Short Description Image</label>
-                                <div class="input-group">
-                                    <div class="custom-file">
-                                        <input type="file" class="form-control" id="exampleInputFile"
-                                            name="short_description_image">
-                                    </div>
-                                </div>
-                                @if ($errors->has('short_description_image'))
-                                    <small class="text-red">{{ $errors->first('short_description_image') }}</small>
-                                @endif
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Short Description</label>
-                                <textarea name="short_description" cols="30" rows="10" class="form-control"
-                                    value="{{ $siteSetting->short_description }}">{{ $siteSetting->short_description }}</textarea>
-                                @if ($errors->has('short_description'))
-                                    <small class="text-red">{{ $errors->first('short_description') }}</small>
-                                @endif
-                            </div>
+
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email</label>
                                 <input type="email" class="form-control" placeholder="Enter email"

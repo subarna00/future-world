@@ -5,12 +5,12 @@
 
         <nav id="navbar" class="navbar">
             <ul>
-                <li><a class="nav-link scrollto active" href="/">Home</a></li>
-                <li><a class="nav-link scrollto" href="/about-us">About</a></li>
-                <li><a class="nav-link scrollto" href="/services">Services</a></li>
-                <li><a class="nav-link scrollto " href="/blogs">Blogs</a></li>
-                <li><a class="nav-link scrollto " href="/news">News</a></li>
-                <li><a class="nav-link scrollto " href="{{ route('faq') }}">FAQs</a></li>
+                <li><a class="nav-link  " href="/">Home</a></li>
+                <li><a class="nav-link " href="/about-us">About Us</a></li>
+                <li><a class="nav-link " href="/services">Services</a></li>
+                <li><a class="nav-link  " href="/blogs">Blogs</a></li>
+                <li><a class="nav-link  " href="/news">News</a></li>
+                <li><a class="nav-link  " href="{{ route('faq') }}">FAQs</a></li>
                 {{-- <li><a class="nav-link scrollto" href="#team">Team</a></li> --}}
                 {{-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
           <ul>

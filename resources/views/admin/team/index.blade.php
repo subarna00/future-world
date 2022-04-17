@@ -5,11 +5,11 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Testimonial Table</h3>
+                        <h3 class="card-title">Teams Table</h3>
 
                         <div class="card-tools">
 
-                            <a href="{{ route('testimonials.create') }}" class="btn btn-sm btn-dark">Create Testimonial</a>
+                            <a href="{{ route('teams.create') }}" class="btn btn-sm btn-dark">Create Teams</a>
                         </div>
                     </div>
                     <!-- /.card-header -->
@@ -20,37 +20,32 @@
                                     <th>ID</th>
                                     <th>Name</th>
                                     <th>Image</th>
-                                    <th>Designation</th>
                                     <th>status</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($testimonials as $testimonial)
+                                @foreach ($teams as $team)
                                     <tr>
-                                        <td>{{ $testimonial->id }}</td>
-                                        <td>{{ $testimonial->name }}</td>
-                                        <td><img src="{{ asset('images/' . $testimonial->image) }}" width="90"></td>
+                                        <td>{{ $team->id }}</td>
+                                        <td>{{ $team->name }}</td>
+                                        <td><img src="{{ asset('images/' . $team->image) }}" width="90"></td>
                                         <td>
-                                            @if ($testimonial->status === 'active')
+                                            @if ($team->status === 'active')
                                                 <span class="badge badge-success">active</span>
                                             @else
                                                 <span class="badge badge-danger">inactive</span>
                                             @endif
                                         </td>
-                                        <td>{{ $testimonial->designation }}</td>
-
                                         <td>
-                                            <a href="{{ route('testimonials.edit', $testimonial->id) }}">
+                                            <a href="{{ route('teams.edit', $team->id) }}">
                                                 <i class="ri-edit-box-line text-primary mx-1"></i>
                                             </a>
-                                            <a href="#" data-toggle="modal"
-                                                data-target="#exampleModal{{ $testimonial->id }}">
+                                            <a href="#" data-toggle="modal" data-target="#exampleModal{{ $team->id }}">
                                                 <i class="ri-delete-bin-2-line text-danger"></i>
                                             </a>
-                                            <div class="modal fade" id="exampleModal{{ $testimonial->id }}"
-                                                tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                                                aria-hidden="true">
+                                            <div class="modal fade" id="exampleModal{{ $team->id }}" tabindex="-1"
+                                                role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
@@ -63,14 +58,12 @@
                                                         </div>
                                                         <div class="modal-body">
                                                             Are you sure to delete <span
-                                                                class="text-red">{{ $testimonial->name }}</span>
-                                                            testimonial?
+                                                                class="text-red">{{ $team->name }}</span> team?
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"
                                                                 data-dismiss="modal">Close</button>
-                                                            <form
-                                                                action="{{ route('testimonials.destroy', $testimonial->id) }}"
+                                                            <form action="{{ route('teams.destroy', $team->id) }}"
                                                                 method="POST">
                                                                 @csrf
                                                                 {{ method_field('DELETE') }}

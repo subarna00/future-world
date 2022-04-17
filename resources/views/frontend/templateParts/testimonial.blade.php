@@ -50,7 +50,7 @@
             {{-- <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque
                 vitae autem.</p> --}}
         </div>
-        <div id="carouselExampleDark" class="carousel carousel-dark slide " data-bs-ride="carousel">
+        <div id="carouselExampleDark" class="carousel carousel-dark slide  my-5" data-bs-ride="carousel">
 
             <div class="carousel-inner">
                 @foreach ($testimonials as $key => $testimonial)

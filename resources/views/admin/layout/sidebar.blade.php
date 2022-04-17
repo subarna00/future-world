@@ -4,8 +4,8 @@
            <!-- Sidebar user panel (optional) -->
            <div class="pb-3 mt-3 mb-3 user-panel d-flex">
                <div class="image">
-                   <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2"
-                       alt="User Image">
+                   {{-- <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2"
+                       alt="User Image"> --}}
                </div>
                <div class="info">
                    <a href="#" class="d-block">{{ auth()->user()->name ?? 'userName' }}</a>
@@ -164,6 +164,22 @@
                            <i class="nav-icon fas fa-th"></i>
                            <p>
                                Service Query Forms
+                           </p>
+                       </a>
+                   </li>
+                   <li class="nav-item">
+                       <a href="{{ route('teams.index') }}" class="nav-link">
+                           <i class="nav-icon fas fa-th"></i>
+                           <p>
+                               Teams
+                           </p>
+                       </a>
+                   </li>
+                   <li class="nav-item">
+                       <a href="{{ route('users') }}" class="nav-link">
+                           <i class="nav-icon fas fa-th"></i>
+                           <p>
+                               Users
                            </p>
                        </a>
                    </li>

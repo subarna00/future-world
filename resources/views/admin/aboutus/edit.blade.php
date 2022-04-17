@@ -28,6 +28,14 @@
                                 @endif
                             </div>
                             <div class="form-group">
+                                <label for="exampleInputPassword1">Short Description</label>
+                                <textarea name="short_description" class="form-control" cols="25" rows="5"
+                                    value="{{ $aboutus->short_description }}">{{ $aboutus->short_description }}</textarea>
+                                @if ($errors->has('short_description'))
+                                    <small class="text-red">{{ $errors->first('short_description') }}</small>
+                                @endif
+                            </div>
+                            <div class="form-group">
                                 <label for="exampleInputPassword1">Description</label>
                                 <textarea name="description" class="form-control" cols="25" rows="10" id="summernote"
                                     value="{{ $aboutus->description }}">{{ $aboutus->description }}</textarea>

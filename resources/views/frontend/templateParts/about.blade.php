@@ -13,7 +13,7 @@
                         <h3>Find Out More <span>About Us</span></h3>
                     </div>
                     <p class="fst-italic text-center">
-                        {!! $about->description !!}
+                        {!! $about->short_description !!}
                     </p>
                     {{-- <ul>
                     <li>

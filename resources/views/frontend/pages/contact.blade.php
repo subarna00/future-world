@@ -1,6 +1,6 @@
 @extends('frontend.layout.master')
 @section('content')
-    <section class="breadcrumbs">
+    {{-- <section class="breadcrumbs">
         <div class="container">
 
             <div class="d-flex justify-content-between align-items-center">
@@ -12,8 +12,7 @@
                 </ol>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     @include('frontend.templateParts.contactus')
-
 @endsection
