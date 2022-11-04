@@ -1,47 +1,54 @@
-@extends('frontend.layout.master')
-@section('content')
-    <section class="breadcrumbs">
-        <div class="container">
+@extends("frontend.layouts.master")
+@section("content")
 
-            <div class="d-flex justify-content-between align-items-center">
-                <h2>Projects</h2>
+@if (count($projects) > 0)
+<div class="projects-wrapper projectinfotechno-bg pt-5">
+    <div class="container">
 
-                <ol>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="#">Projects</a></li>
-                </ol>
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- section-title-wrap Start -->
+                <div class="section-title-wrap text-center section-space--mb_40">
+                    <h6 class="section-sub-title mb-20">Case studies</h6>
+                    <h3 class="heading">Proud projects that<span class="text-color-primary">  make us stand out</span></h3>
+                </div>
+                <!-- section-title-wrap Start -->
             </div>
         </div>
-    </section>
-    <section id="team" class="team section-">
-        <div class="container" data-aos="fade-up">
 
-            {{-- <div class="section-title"> --}}
-            {{-- <h3>Our <span>Projects</span></h3> --}}
-            {{-- <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque
-                    vitae autem.</p> --}}
-            {{-- </div> --}}
-
-            <div class="row">
+        <div class="row">
                 @foreach ($projects as $project)
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-                        <div class="member">
-                            <div class="member-img">
-                                <img src="{{ asset('images/' . $project->image) }}" class="img-fluid" alt="">
-                            </div>
-                            <div class="member-info">
-                                <h4>{{ $project->title }}</h4>
-                                <span>{{ $project->description }}</span>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
+                    <div class="col-md-4">
 
-            </div>
-            <div class="d-flex justify-content-center  mt-3">
-                {!! $projects->links('pagination::bootstrap-4') !!}
-            </div>
+                            <!-- Projects Wrap Start -->
+                            <a href="#" class="projects-wrap style-01 wow move-up">
+                                <div class="projects-image-box">
+                                    <div class="projects-image">
+                                        <img class="img-fluid w-100" src="{{asset('images/'.$project->image)}}" alt="">
+                                    </div>
+                                    <div class="content">
+                                        <h6 class="heading">{{$project->title}}</h6>
+                                        <div class="post-categories">{{$project->type}}</div>
+                                        <div class="text">{{$project->description}}
+                                        </div>
+                                        {{-- <div class="box-projects-arrow">
+                                            <span class="button-text">View case study</span>
+                                            <i class="fa fa-long-arrow-right ml-1"></i>
+                                        </div> --}}
+                                    </div>
+                                </div>
+                            </a>
+                            <!-- Projects Wrap End -->
+
+
+                        </div>
+                        @endforeach
+
+                {{-- <div class="section-under-heading text-center section-space--mt_40">Challenges are just opportunities in disguise. <a href="#">Take the challenge!</a></div> --}}
 
         </div>
-    </section><!-- End Team Section -->
+    </div>
+</div>
+@endif
+
 @endsection

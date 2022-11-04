@@ -28,16 +28,20 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Type</th>
+                                    <th>Service</th>
+                                    <th>Image</th>
                                     <th>Status</th>
-
                                     <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($types as $type)
+                                @foreach ($types as $key=> $type)
                                     <tr>
-                                        <td>{{ $type->id }}</td>
+                                        <td>{{ $key + 1 }}</td>
+
                                         <td>{{ $type->type }}</td>
+                                        <td>{{ $type->service->title ?? "" }}</td>
+                                        <td><img src="{{ asset('images/' . $type->image) }}" width="90"></td>
                                         <td>
                                             @if ($type->status === 'active')
                                                 <span class="badge badge-success">active</span>

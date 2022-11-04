@@ -5,8 +5,8 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Site Setting Table</h3>
 
+                        <h3 class="card-title">Site Setting Table</h3>
                         <div class="card-tools">
                             {{-- <div class="input-group input-group-sm" style="width: 150px;">
                                 <input type="text" name="table_search" class="float-right form-control" placeholder="Search">
@@ -17,8 +17,11 @@
                                     </button>
                                 </div>
                             </div> --}}
+                            @if(count($settings) === 0)
                             <a href="{{ route('site-setting.create') }}" class="btn btn-sm btn-dark">Create Site
                                 Settings</a>
+                            @endif
+
                         </div>
                     </div>
                     <!-- /.card-header -->

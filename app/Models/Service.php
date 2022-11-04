@@ -10,6 +10,6 @@ class Service extends Model
     use HasFactory;
     protected $guarded = [];
     public function type(){
-        return $this->belongsTo(ServiceType::class);
+        return $this->hasMany(ServiceType::class);
     }
 }

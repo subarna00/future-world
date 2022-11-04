@@ -47,12 +47,23 @@ class SiteSettingController extends Controller
             'youtube' => 'sometimes',
             'twitter' => 'sometimes',
             'tiktok' => 'sometimes',
+            'fav_icon' => 'sometimes',
+            'experience' => 'sometimes',
+            'satisfied' => 'sometimes',
+            'projects' => 'sometimes',
+            'finished_works' => 'sometimes',
         ]);
         if ($request->hasFile('logo')) {
             $image = $request->file('logo');
             $img = time() . '.' . $image->getClientOriginalName();
             $image->move(public_path('images'), $img);
             $data['logo'] = $img;
+        }
+        if ($request->hasFile('fav_icon')) {
+            $image = $request->file('fav_icon');
+            $img = time() . '.' . $image->getClientOriginalName();
+            $image->move(public_path('images'), $img);
+            $data['fav_icon'] = $img;
         }
 
         SiteSetting::create($data);
@@ -101,12 +112,23 @@ class SiteSettingController extends Controller
             'youtube' => 'sometimes',
             'twitter' => 'sometimes',
             'tiktok' => 'sometimes',
+            'fav_icon' => 'sometimes',
+            'experience' => 'sometimes',
+            'satisfied' => 'sometimes',
+            'projects' => 'sometimes',
+            'finished_works' => 'sometimes',
         ]);
         if ($request->hasFile('logo')) {
             $image = $request->file('logo');
             $img = time() . '.' . $image->getClientOriginalName();
             $image->move(public_path('images'), $img);
             $data['logo'] = $img;
+        }
+        if ($request->hasFile('fav_icon')) {
+            $image = $request->file('fav_icon');
+            $img = time() . '.' . $image->getClientOriginalName();
+            $image->move(public_path('images'), $img);
+            $data['fav_icon'] = $img;
         }
 
         SiteSetting::find($siteSetting->id)->update($data);

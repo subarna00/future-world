@@ -30,6 +30,18 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="exampleInputFile">Favicon Icon</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type="file" class="form-control" id="exampleInputFile" name="fav_icon">
+                                    </div>
+                                </div>
+                                @if ($errors->has('logo'))
+                                    <small class="text-red">{{ $errors->first('fav_icon') }}</small>
+                                @endif
+                            </div>
+
+                            <div class="form-group">
                                 <label for="exampleInputEmail1">Email</label>
                                 <input type="email" class="form-control" placeholder="Enter email"
                                     value="{{ $siteSetting->email }}" name="email" required>
@@ -55,12 +67,12 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Facebook</label>
-                                <input type="text" class="form-control" placeholder="facebook"
+                                <input type="url" class="form-control" placeholder="facebook"
                                     value="{{ $siteSetting->facebook }}" name="facebook">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Youtube</label>
-                                <input type="text" class="form-control" placeholder="Youtube"
+                                <input type="url" class="form-control" placeholder="Youtube"
                                     value="{{ $siteSetting->youtube }}" name="youtube">
                             </div>
                             <div class="form-group">
@@ -79,7 +91,26 @@
                                     value="{{ $siteSetting->tiktok }}" name="Tiktok">
                             </div>
 
-
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Experience</label>
+                            <input type="number" class="form-control" placeholder="experience" value="{{ $siteSetting->experience }}"
+                                name="experience">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Satisfied Clients</label>
+                            <input type="number" class="form-control" placeholder="satisfied" value="{{ $siteSetting->satisfied }}"
+                                name="satisfied">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Projects</label>
+                            <input type="number" class="form-control" placeholder="projects" value="{{ $siteSetting->projects }}"
+                                name="projects">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Finished Works</label>
+                            <input type="number" class="form-control" placeholder="finished_works" value="{{ $siteSetting->finished_works }}"
+                                name="finished_works">
+                        </div>
 
                             <div class="form-group">
                                 <label for="exampleInputFile">Status</label>

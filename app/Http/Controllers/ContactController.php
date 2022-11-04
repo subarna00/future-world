@@ -38,13 +38,13 @@ class ContactController extends Controller
     public function store(Request $request)
     {
         $store = new Contact();
-        $store->name = $request->name;
-        $store->email = $request->email;
-        $store->number = $request->number;
-        $store->message = $request->message;
+        $store->name = $request->name ?? "name";
+        $store->email = $request->email ?? "email";
+        $store->number = $request->number ?? "number";
+        $store->message = $request->message ?? "message";
         $store->save();
-        notify()->success("Your message is sent");
-        return redirect()->back();
+
+        return redirect()->back()->with("msg","Thank you for messaging us. We will reach you soon.");
     }
 
     /**

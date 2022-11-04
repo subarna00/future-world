@@ -19,23 +19,7 @@
                         @csrf
                         {{ method_field('PATCH') }}
                         <div class="card-body">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Type</label>
-                                <input type="text" class="form-control" placeholder="Enter Type"
-                                    value="{{ $type->type }}" name="type" required>
-                                @if ($errors->has('type'))
-                                    <small class="text-red">{{ $errors->first('type') }}</small>
-                                @endif
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputFile">Status</label>
-                                <select name="status" class="form-control">
-                                    <option value="active" @if ($type->status === 'active') selected @endif>Active
-                                    </option>
-                                    <option value="inactive" @if ($type->status === 'inactive') selected @endif>Inactive
-                                    </option>
-                                </select>
-                            </div>
+                          @include("admin.servicesTypes.form")
                         </div>
                         <!-- /.card-body -->
 

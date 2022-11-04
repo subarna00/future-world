@@ -39,12 +39,11 @@ class ServiceController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'service_type_id' => 'required',
             'title' => 'required',
-            'short_description' => 'required',
             'description' => 'required',
+            'short_description' => 'required',
             'status' => 'required',
-            'image' => 'sometimes'
+            'image' => 'required'
         ]);
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -90,10 +89,9 @@ class ServiceController extends Controller
     public function update(Request $request, Service $service)
     {
         $data = $request->validate([
-            'service_type_id' => 'required',
             'title' => 'required',
-            'short_description' => 'required',
             'description' => 'required',
+            'short_description' => 'required',
             'status' => 'required',
             'image' => 'sometimes'
         ]);

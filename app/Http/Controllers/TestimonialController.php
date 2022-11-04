@@ -90,7 +90,7 @@ class TestimonialController extends Controller
         $data = $request->validate([
             'name' => 'required',
             'description' => 'sometimes',
-            'image' => 'required',
+            'image' => 'sometimes',
             'designation' => 'sometimes',
             'status' => 'required'
 

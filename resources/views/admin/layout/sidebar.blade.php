@@ -19,7 +19,7 @@
                    <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                    <li class="nav-item menu-open">
-                       <a href="/dashboard/dashboard" class="nav-link active">
+                       <a href="/admin/dashboard" class="nav-link active">
                            <i class="nav-icon fas fa-tachometer-alt"></i>
                            <p>
                                Dashboard
@@ -58,16 +58,22 @@
                            </p>
                        </a>
                        <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('services.index') }}" class="nav-link">
+                                <p>- Services</p>
+                            </a>
+                        </li>
                            <li class="nav-item">
                                <a href="{{ route('service-types.index') }}" class="nav-link">
-                                   <p>Service Types</p>
+                                   <p>- Service Types</p>
                                </a>
                            </li>
                            <li class="nav-item">
-                               <a href="{{ route('services.index') }}" class="nav-link">
-                                   <p>Services</p>
+                               <a href="{{ route('service-sub-type.index') }}" class="nav-link">
+                                   <p>- Service Sub Type</p>
                                </a>
                            </li>
+
                        </ul>
                    </li>
                    <li class="nav-item">
@@ -94,6 +100,14 @@
 
 
                        </ul>
+                   </li>
+                   <li class="nav-item">
+                       <a href="{{ route('courses.index') }}" class="nav-link">
+                           <i class="nav-icon fas fa-th"></i>
+                           <p>
+                               Courses
+                           </p>
+                       </a>
                    </li>
                    <li class="nav-item">
                        <a href="{{ route('news.index') }}" class="nav-link">

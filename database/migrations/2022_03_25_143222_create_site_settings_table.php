@@ -16,6 +16,7 @@ class CreateSiteSettingsTable extends Migration
         Schema::create('site_settings', function (Blueprint $table) {
             $table->id();
             $table->string('logo');
+            $table->string('fav_icon')->nullable();
             $table->string('email');
             $table->string('phone_number');
             $table->string('address');
@@ -25,6 +26,10 @@ class CreateSiteSettingsTable extends Migration
             $table->string('twitter')->nullable();
             $table->string('instagram')->nullable();
             $table->string('tiktok')->nullable();
+            $table->string('experience')->nullable();
+            $table->string('satisfied')->nullable();
+            $table->string('projects')->nullable();
+            $table->string('finished_works')->nullable();
             $table->string('status')->default('active');
             $table->timestamps();
         });

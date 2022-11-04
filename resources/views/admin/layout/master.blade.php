@@ -4,7 +4,7 @@
 @include('admin.layout.header')
 
 <body class="hold-transition sidebar-mini layout-fixed">
-    <div id="fb-root"></div>
+
 
     <div class="wrapper">
 

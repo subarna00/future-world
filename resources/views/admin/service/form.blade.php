@@ -1,5 +1,8 @@
+
+
+
     <div class="card-body">
-        <div class="form-group">
+        {{-- <div class="form-group">
             <label for="">Select Service Type</label>
             <select name="service_type_id" id="" class="form-control" required>
                 @foreach (App\Models\ServiceType::latest()->get() as $type)
@@ -7,7 +10,7 @@
                         {{ $type->type }}</option>
                 @endforeach
             </select>
-        </div>
+        </div> --}}
         <div class="form-group">
             <label for="exampleInputEmail1">Title</label>
             <input type="text" class="form-control" placeholder="Enter title"
@@ -16,10 +19,11 @@
                 <small class="text-red">{{ $errors->first('title') }}</small>
             @endif
         </div>
+
         <div class="form-group">
             <label for="exampleInputPassword1">Short Description</label>
-            <textarea name="short_description" class="form-control" cols="25" rows="10" id="summernote"
-                value="{{ $service->short_description ?? old('short_description') }}">{{ $service->short_description ?? old('title') }}</textarea>
+            <textarea name="short_description" class="form-control"  rows="5"
+                value="{{ old('short_description') }}">{{ $service->short_description ?? old('short_description') }}</textarea>
             @if ($errors->has('short_description'))
                 <small class="text-red">{{ $errors->first('short_description') }}</small>
             @endif
@@ -55,11 +59,6 @@
 
     @section('script')
         <script>
-            $('#summernote').summernote({
-                placeholder: 'Write your service description',
-                tabsize: 2,
-                height: 100
-            });
             $('#summernote1').summernote({
                 placeholder: 'Write your service description',
                 tabsize: 2,

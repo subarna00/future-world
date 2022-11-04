@@ -20,7 +20,6 @@ class CreateTestimonialsTable extends Migration
             $table->string("designation")->nullable();
             $table->string("description")->nullable();
             $table->string('status')->default('active');
-
             $table->timestamps();
         });
     }
