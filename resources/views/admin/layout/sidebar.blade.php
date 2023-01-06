@@ -58,11 +58,11 @@
                            </p>
                        </a>
                        <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ route('services.index') }}" class="nav-link">
-                                <p>- Services</p>
-                            </a>
-                        </li>
+                           <li class="nav-item">
+                               <a href="{{ route('services.index') }}" class="nav-link">
+                                   <p>- Services</p>
+                               </a>
+                           </li>
                            <li class="nav-item">
                                <a href="{{ route('service-types.index') }}" class="nav-link">
                                    <p>- Service Types</p>
@@ -177,7 +177,7 @@
                        <a href="{{ route('serviceQuery') }}" class="nav-link">
                            <i class="nav-icon fas fa-th"></i>
                            <p>
-                               Service Query Forms
+                               Course Query Forms
                            </p>
                        </a>
                    </li>

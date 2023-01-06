@@ -1,19 +1,22 @@
 <?php
 $siteData = App\Models\SiteSetting::first();
-Session::put('logo', $siteData->logo);
-Session::put('fav_icon', $siteData->fav_icon);
-Session::put('facebook', $siteData->facebook);
-Session::put('youtube', $siteData->youtube);
-Session::put('twitter', $siteData->twitter);
-Session::put('instagram', $siteData->instagram);
-Session::put('tiktok', $siteData->tiktok);
-Session::put('satisfied', $siteData->satisfied);
-Session::put('projects', $siteData->projects);
-Session::put('finished_works', $siteData->finished_works);
-Session::put('experience', $siteData->experience);
-Session::put('address', $siteData->address);
-Session::put('email', $siteData->email);
-Session::put('phone_number', $siteData->phone_number);
+if ($siteData) {
+    Session::put('logo', $siteData->logo);
+    Session::put('fav_icon', $siteData->fav_icon);
+    Session::put('facebook', $siteData->facebook);
+    Session::put('youtube', $siteData->youtube);
+    Session::put('twitter', $siteData->twitter);
+    Session::put('instagram', $siteData->instagram);
+    Session::put('tiktok', $siteData->tiktok);
+    Session::put('satisfied', $siteData->satisfied);
+    Session::put('projects', $siteData->projects);
+    Session::put('finished_works', $siteData->finished_works);
+    Session::put('experience', $siteData->experience);
+    Session::put('address', $siteData->address);
+    Session::put('email', $siteData->email);
+    Session::put('phone_number', $siteData->phone_number);
+}
+
 ?>
 <!-- Required meta tags -->
 <!DOCTYPE html>
@@ -46,7 +49,7 @@ Session::put('phone_number', $siteData->phone_number);
     <div id="main-wrapper">
         <div class="site-wrapper-reveal">
             <!--============ Infotechno Hero Start ============-->
-@yield("content")
+            @yield('content')
             <!--=========== fun fact Wrapper End ==========-->
             <!--=========== Infotechno Video Wrapper Start ==========-->
             {{-- <div class="infotechno-video-wrapper infotechno-video-ptb infotechno-video-bg">
@@ -410,25 +413,31 @@ Session::put('phone_number', $siteData->phone_number);
     <!-- JS
         ============================================ -->
     <!-- Modernizer JS -->
-    <script src="{{asset('assets/js/vendor/modernizr-2.8.3.min.js')}}"></script>
+    <script src="{{ asset('assets/js/vendor/modernizr-2.8.3.min.js') }}"></script>
 
     <!-- jQuery JS -->
-    <script src="{{asset('assets/js/vendor/jquery-3.5.1.min.js')}}"></script>
-    <script src="{{asset('assets/js/vendor/jquery-migrate-3.3.0.min.js')}}"></script>
+    <script src="{{ asset('assets/js/vendor/jquery-3.5.1.min.js') }}"></script>
+    <script src="{{ asset('assets/js/vendor/jquery-migrate-3.3.0.min.js') }}"></script>
 
     <!-- Bootstrap JS -->
-    <script src="{{asset('assets/js/vendor/bootstrap.min.js')}}"></script>
+    <script src="{{ asset('assets/js/vendor/bootstrap.min.js') }}"></script>
 
     <!-- Plugins JS (Please remove the comment from below plugins.min.js for better website load performance and remove plugin js files from avobe) -->
 
-    <script src="{{asset('assets/js/plugins/plugins.min.js')}}"></script>
+    <script src="{{ asset('assets/js/plugins/plugins.min.js') }}"></script>
 
     <!-- Main JS -->
-    <script src="{{asset('assets/js/main.js')}}"></script>
+    <script src="{{ asset('assets/js/main.js') }}"></script>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
 </body>
 
 

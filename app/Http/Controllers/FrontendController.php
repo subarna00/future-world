@@ -24,9 +24,10 @@ class FrontendController extends Controller
         $siteInfo = SiteSetting::where('status', 'active')->first();
         return view('frontend.pages.home', compact('siteInfo'));
     }
-    public function teams(){
-        $teams = Team::where("status","active")->latest()->get();
-        return view("frontend.pages.team",compact("teams"));
+    public function teams()
+    {
+        $teams = Team::where("status", "active")->latest()->get();
+        return view("frontend.pages.team", compact("teams"));
     }
     public function services()
     {
@@ -38,12 +39,12 @@ class FrontendController extends Controller
         $service = Service::where('slug', $slug)->first();
         return view('frontend.pages.serviceDetail', compact('service'));
     }
-    public function serviceTypeDetailPage($service,$slug)
+    public function serviceTypeDetailPage($service, $slug)
     {
         $service = ServiceType::where('slug', $slug)->first();
         return view('frontend.pages.serviceTypeDetail', compact('service'));
     }
-    public function serviceSubTypeDetailPage($service,$type,$slug)
+    public function serviceSubTypeDetailPage($service, $type, $slug)
     {
         $service = ServiceTypeSub::where('slug', $slug)->first();
         return view('frontend.pages.serviceSubTypeDetail', compact('service'));
@@ -55,10 +56,9 @@ class FrontendController extends Controller
         $store->email = $request->email;
         $store->number = $request->number;
         $store->message = $request->message;
-        $store->address = $request->address;
+        $store->course = $request->course;
         $store->save();
-        notify()->success("Your Inspection Schedule is Requested. ");
-        return redirect()->back();
+        return redirect()->back()->with("msg", "Your query has been submitted. Thank you!");
     }
 
     public function faq()
@@ -74,20 +74,20 @@ class FrontendController extends Controller
     {
         $blogs = Blog::inRandomOrder()->paginate(10);
         $recentBlogs = Blog::latest()->take(10)->get();
-        return view('frontend.pages.blogs', compact('blogs',"recentBlogs"));
+        return view('frontend.pages.blogs', compact('blogs', "recentBlogs"));
     }
     public function blogCategory($slug)
     {
-        $blog = BlogType::where("slug",$slug)->first();
+        $blog = BlogType::where("slug", $slug)->first();
         $blogs = $blog->blogs;
         $recentBlogs = Blog::latest()->take(10)->get();
-        return view('frontend.pages.blogs', compact('blogs',"recentBlogs"));
+        return view('frontend.pages.blogs', compact('blogs', "recentBlogs"));
     }
     public function blogDetailPage($slug)
     {
         $blog = Blog::where('slug', $slug)->first();
         $recentBlogs = Blog::latest()->take(10)->get();
-        return view('frontend.pages.blogDetail', compact('blog',"recentBlogs"));
+        return view('frontend.pages.blogDetail', compact('blog', "recentBlogs"));
     }
 
     public function news()
@@ -101,7 +101,7 @@ class FrontendController extends Controller
     }
     public function projects()
     {
-        $projects = Project::where("status","active")->latest()->get();
+        $projects = Project::where("status", "active")->latest()->get();
         return view('frontend.pages.project', compact('projects'));
     }
     public function clients()
@@ -109,10 +109,14 @@ class FrontendController extends Controller
         $clients = Client::latest()->paginate(12);
         return view('frontend.pages.clients', compact('clients'));
     }
-    public function courses(){
-        $courses = Course::where("status","active")->latest()->get();
-        return view("frontend.pages.courses",compact("courses"));
-
+    public function courses()
+    {
+        $courses = Course::where("status", "active")->latest()->get();
+        return view("frontend.pages.courses", compact("courses"));
     }
-
+    public function courseDetail($slug)
+    {
+        $course = Course::where("slug", $slug)->first();
+        return view("frontend.pages.courseDetail", compact('course'));
+    }
 }

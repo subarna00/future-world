@@ -15,7 +15,7 @@ class ServiceQueryController extends Controller
     public function index()
     {
         $services = ServiceQuery::latest()->get();
-        return view('admin.formData.serviceForm',compact('services'));
+        return view('admin.formData.serviceForm', compact('services'));
     }
 
     /**
@@ -36,7 +36,15 @@ class ServiceQueryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            "name" => "required",
+            "email" => "required",
+            "number" => "required",
+            "message" => "required",
+            "course" => "required",
+        ]);
+        ServiceQuery::create($data);
+        return redirect()->back()->with("msg", "You query is submitted. Thank you!");
     }
 
     /**

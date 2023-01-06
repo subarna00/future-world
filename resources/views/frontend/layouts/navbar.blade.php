@@ -22,7 +22,8 @@
                         <!-- brand logo -->
                         <div class="header__logo">
                             <a href="/">
-                                <img src="{{asset('images/'.session()->get('logo'))}}" width="160" height="48" class="img-fluid" alt="">
+                                <img src="{{ asset('images/' . session()->get('logo')) }}" width="160" height="48"
+                                    class="img-fluid" alt="">
                             </a>
                         </div>
 
@@ -62,59 +63,16 @@
                         </div>
 
                         <!-- header right box -->
-                        {{-- <div class="header-right-box">
-                            <div class="header-right-inner" id="hidden-icon-wrapper">
+                        <div class="header-right-box d-lg-none">
 
-                                <!-- language-menu -->
-                                <div class="language-menu">
-                                    <ul>
-                                        <li>
-                                            <a href="#" class="">
-                                                <img class="ls-flag" src="assets/images/flags/en.webp" alt="en" title="English">
-                                                <span class="wpml-ls-native">English</span>
-                                            </a>
-
-                                            <ul class="ls-sub-menu">
-                                                <li class="">
-                                                    <a href="#" class="">
-                                                        <img class="ls-flag" src="assets/images/flags/fr.webp" alt="en" title="Français"><span class="wpml-ls-native">Français</span>
-                                                    </a>
-                                                </li>
-                                                <li class="">
-                                                    <a href="#" class="">
-                                                        <img class="wpml-ls-flag" src="assets/images/flags/de.webp" alt="de" title="Deutsch"><span class="wpml-ls-native">Deutsch</span>
-                                                    </a>
-                                                </li>
-
-                                            </ul>
-
-                                        </li>
-
-                                    </ul>
-                                </div>
-
-                                <!-- header-search-form -->
-                                <div class="header-search-form default-search">
-                                    <form action="#" class="search-form-top">
-                                        <input class="search-field" type="text" placeholder="Search…">
-                                        <button class="search-submit">
-                                            <i class="search-btn-icon fa fa-search"></i>
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
 
                             <!-- mobile menu -->
                             <div class="mobile-navigation-icon d-block d-xl-none" id="mobile-menu-trigger">
                                 <i></i>
                             </div>
                             <!-- hidden icons menu -->
-                            <div class="hidden-icons-menu d-block d-md-none" id="hidden-icon-trigger">
-                                <a href="javascript:void(0)">
-                                    <i class="far fa-ellipsis-h-alt"></i>
-                                </a>
-                            </div>
-                        </div> --}}
+
+                        </div>
 
                     </div>
                 </div>
